@@ -10,15 +10,25 @@
 <body>
     <?php
     $books = [
-        "12 Rules For Life",
-        "Beyond Order",
-        "Atomic Habits"
+        [
+            'title' => '12 Rules for Life',
+            'author' => 'Jordan B. Peterson',
+            'purchaseURL' => 'https://example.com'
+        ],
+        [
+            'title' => 'Atomic Habits',
+            'author' => 'James Clear',
+            'purchaseURL' => 'https://example.com'
+        ],
     ]
-    ?>
-    <h1>Recommended Books</h1>
+        ?>
     <ul>
-        <?php foreach ($books as $book) : ?>
-            <li><?= $book ?></li>
+        <?php foreach ($books as $book): ?>
+            <li>
+                <a href="<?= $book['purchaseURL'] ?>">
+                    <?= $book['title'] ?>
+                </a>
+            </li>
         <?php endforeach ?>
     </ul>
 </body>
