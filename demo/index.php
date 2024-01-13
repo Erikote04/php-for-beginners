@@ -30,19 +30,23 @@
         ],
     ];
 
-    function filter($items, $key, $value) {
+    function filter($items, $fn) {
         $filteredItems = [];
         foreach ($items as $item) {
-            if ($item[$key] === $value) {
+            if ($fn($item)) {
                 $filteredItems[] = $item;
             }
         }
         return $filteredItems;
     }
+
+    $filteredBooks = filter($books, function($book) {
+        return $book['releaseYear'] > 2018;
+    });
     ?>
 
     <ul>
-        <?php foreach (filter($books, 'releaseYear', 2018) as $book): ?>
+        <?php foreach ($filteredBooks as $book): ?>
             <li>
                 <a href="<?= $book['purchaseURL'] ?>">
                     <?= $book['title'] ?> (<?= $book['releaseYear'] ?>) 
