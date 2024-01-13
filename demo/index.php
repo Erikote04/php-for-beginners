@@ -30,25 +30,22 @@
         ],
     ];
 
-    $filterByAuthor = function ($books, $author) {
-        $filteredBooks = [];
-        foreach ($books as $book) {
-            if ($book['author'] === $author) {
-                $filteredBooks[] = $book;
+    function filter($items, $key, $value) {
+        $filteredItems = [];
+        foreach ($items as $item) {
+            if ($item[$key] === $value) {
+                $filteredItems[] = $item;
             }
         }
-        return $filteredBooks;
-    };
-
-    $filteredBooks = $filterByAuthor($books, 'Jordan B. Peterson');
+        return $filteredItems;
+    }
     ?>
 
     <ul>
-        <?php foreach ($filteredBooks as $book): ?>
+        <?php foreach (filter($books, 'releaseYear', 2018) as $book): ?>
             <li>
                 <a href="<?= $book['purchaseURL'] ?>">
-                    <?= $book['title'] ?> (
-                    <?= $book['releaseYear'] ?>)
+                    <?= $book['title'] ?> (<?= $book['releaseYear'] ?>) 
                 </a>
             </li>
         <?php endforeach ?>
