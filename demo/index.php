@@ -30,7 +30,7 @@
         ],
     ];
 
-    function filterByAuthor($books, $author) {
+    $filterByAuthor = function ($books, $author) {
         $filteredBooks = [];
         foreach ($books as $book) {
             if ($book['author'] === $author) {
@@ -38,14 +38,17 @@
             }
         }
         return $filteredBooks;
-    }
+    };
+
+    $filteredBooks = $filterByAuthor($books, 'Jordan B. Peterson');
     ?>
 
     <ul>
-        <?php foreach (filterByAuthor($books, 'Jordan B. Peterson') as $book): ?>
+        <?php foreach ($filteredBooks as $book): ?>
             <li>
                 <a href="<?= $book['purchaseURL'] ?>">
-                    <?= $book['title'] ?> (<?= $book['releaseYear'] ?>) 
+                    <?= $book['title'] ?> (
+                    <?= $book['releaseYear'] ?>)
                 </a>
             </li>
         <?php endforeach ?>
