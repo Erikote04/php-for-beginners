@@ -1,10 +1,12 @@
 <?php require("partials/head.php") ?>
 <?php require("partials/nav.php") ?>
-<?php require("partials/banner.php") ?>
 
 <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-        <p>Welcome to the About page</p>
+        <h1 class="text-2xl font-bold">Not Found</h1>
+        <p class="mt-4">
+            <a href="/" class="text-blue underline">Return to home page</a>
+        </p>
     </div>
 </main>
 

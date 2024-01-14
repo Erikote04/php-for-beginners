@@ -4,7 +4,7 @@
 
 <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-        Welcome to the Contact page
+        <p>Welcome to the Contact page</p>
     </div>
 </main>
 
